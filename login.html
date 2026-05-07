@@ -1,88 +1,70 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Private Club | Вход</title>
-  <meta name="description" content="Личный вход в кабинет члена клуба.">
-  <meta name="theme-color" content="#050507">
-  <script>document.documentElement.classList.add("js");</script>
-  <link rel="stylesheet" href="style.css?v=20260507b">
+  <title>Private Circle | Member Login</title>
+  <meta name="description" content="Вход для подтвержденных участников Private Circle.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600;1,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <a class="skip-link" href="#main">Перейти к содержанию</a>
-
-  <header class="nav">
-    <a class="brand" href="index.html" aria-label="Private Club">
-      <span class="brand-crest" aria-hidden="true"><span class="brand-crest__seal"></span></span>
-      <span class="brand-word">Private Club</span>
-    </a>
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Открыть меню">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-    <nav class="nav-links" id="site-nav" aria-label="Навигация">
-      <a href="method.html">Клуб</a>
-      <a href="training.html">Тело</a>
-      <a href="faq.html">Дело</a>
-      <a href="nutrition.html">Вкус</a>
-      <a href="tariffs.html">Членство</a>
-    </nav>
-    <a class="nav-cta" href="account.html">Кабинет</a>
-  </header>
-
-  <main class="site" id="main">
-    <section class="subpage auth-shell">
-      <div class="auth-copy auth-visual reveal">
-        <div class="auth-visual-frame auth-visual-frame--minimal">
-          <p class="eyebrow">New client</p>
-          <h1>Получить доступ</h1>
-          <p>Сначала заполни заявку. После подтверждения сопровождения тебе откроется личный кабинет.</p>
-          <a class="button auth-application-link" href="start.html#application">Перейти к анкете</a>
-          <div class="auth-visual-tags" aria-hidden="true">
-            <span>Анкета</span>
-            <span>Подтверждение</span>
-            <span>Доступ</span>
-          </div>
-        </div>
+  <a class="skip-link" href="#main">К содержанию</a>
+  <div class="cursor" aria-hidden="true"></div>
+  <div class="page-shell">
+    <header class="site-nav" aria-label="Главная навигация">
+      <div class="site-nav__inner">
+        <a class="brand" href="index.html"><span class="brand-mark">PC</span><span class="brand-copy"><span class="brand-label">Private members society</span><span class="brand-name">Private Circle</span></span></a>
+        <nav class="nav-links">
+          <a href="club.html">Информация</a>
+          <a href="appearance.html">Внешность</a>
+          <a href="business.html">Бизнес</a>
+          <a href="art.html">Искусство</a>
+          <a href="cellar.html">Вкус</a>
+          <a href="membership.html">Членство</a>
+        </nav>
+        <div class="nav-aux"><a href="login.html" aria-current="page">Member Login</a></div>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Открыть меню"><span></span></button>
       </div>
+    </header>
 
-      <section class="auth-panel reveal" aria-labelledby="auth-title">
-        <div class="auth-panel-head">
-          <p class="eyebrow">Private access</p>
-          <h2 id="auth-title">Войти в личный кабинет</h2>
-          <p>Если доступ уже выдан, войди по email и паролю.</p>
-        </div>
-
-        <form id="auth-form" class="application-form auth-form">
-          <label class="field">
-            <span>Email</span>
-            <input type="email" id="auth-email" name="email" placeholder="client@example.com" autocomplete="email" required>
-          </label>
-
-          <label class="field">
-            <span>Пароль</span>
-            <input type="password" id="auth-password" name="password" placeholder="Не короче 6 символов" autocomplete="current-password" required>
-          </label>
-
-          <div class="auth-actions">
-            <button class="button" type="submit" id="auth-login">Войти</button>
+    <main class="main" id="main">
+      <section class="section page-hero">
+        <div class="split">
+          <div class="entry-card reveal">
+            <p class="eyebrow">Private access</p>
+            <h3>Вход для участников клуба.</h3>
+            <p>Личный кабинет открывается только после подтверждения членства. Если доступ уже выдан, войди по своим данным.</p>
+            <div class="form-grid">
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" type="email" placeholder="member@example.com">
+              </div>
+              <div class="field">
+                <label for="password">Пароль</label>
+                <input id="password" type="password" placeholder="Не короче 6 символов">
+              </div>
+              <div class="form-actions">
+                <button class="button button--primary" type="button">Войти</button>
+              </div>
+            </div>
           </div>
-
-          <p class="status-text" id="auth-status" aria-live="polite"></p>
-        </form>
-
-        <details class="admin-access">
-          <summary>Режим администратора</summary>
-          <p>После заявки доступ выдается через email и пароль клиента.</p>
-          <button class="button ghost" type="button" id="auth-signup">Выдать доступ клиенту</button>
-        </details>
+          <div class="login-card reveal">
+            <p class="eyebrow">Нет доступа?</p>
+            <h3>Сначала запроси членство.</h3>
+            <p>Клуб не использует открытую саморегистрацию. Доступ выдается только после заявки и личного рассмотрения.</p>
+            <div class="form-actions">
+              <a class="button button--ghost" href="apply.html">Перейти к анкете</a>
+            </div>
+          </div>
+        </div>
       </section>
-    </section>
-  </main>
+    </main>
 
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="auth.js?v=20260507b"></script>
+    <footer class="footer"><span>Private Circle</span><span>Member access</span></footer>
+  </div>
+  <script src="app.js"></script>
 </body>
 </html>

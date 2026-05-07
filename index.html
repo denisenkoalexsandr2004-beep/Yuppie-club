@@ -1,124 +1,207 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Private Club | Закрытый клуб</title>
-  <meta name="description" content="Закрытый клуб для молодых и амбициозных людей, где тело, дело, вкус, культура и окружение собираются в единый личный уровень.">
-  <meta name="theme-color" content="#171714">
-  <script>document.documentElement.classList.add("js");</script>
-  <link rel="stylesheet" href="style.css?v=20260507b">
+  <title>Private Circle | Закрытый клуб нового круга</title>
+  <meta name="description" content="Private Circle — закрытый клуб для молодых мужчин, где внешность, деловая мысль, вкус, искусство и офлайн-среда складываются в более высокий образ жизни.">
+  <meta name="theme-color" content="#182133">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600;1,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <a class="skip-link" href="#main">Перейти к содержанию</a>
-
-  <header class="nav">
-    <a class="brand" href="index.html" aria-current="page" aria-label="Private Club">
-      <span class="brand-crest" aria-hidden="true"><span class="brand-crest__seal"></span></span>
-      <span class="brand-word">Private Club</span>
-    </a>
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Открыть меню">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-    <nav class="nav-links" id="site-nav" aria-label="Навигация">
-      <a href="method.html">Клуб</a>
-      <a href="training.html">Тело</a>
-      <a href="faq.html">Дело</a>
-      <a href="nutrition.html">Вкус</a>
-      <a href="tariffs.html">Членство</a>
-    </nav>
-    <a class="nav-cta nav-cta--portal" href="account.html">Личный кабинет</a>
-  </header>
-
-  <main class="site" id="main">
-    <section class="page-hero">
-      <div class="chapter-meta">
-        <span>Season I</span>
-        <span>Private Club</span>
-      </div>
-
-      <figure class="hero-member reveal">
-        <img src="assets/hero-club-member.jpg?v=20260507b" alt="Стильно одетый член закрытого клуба" loading="eager" decoding="async">
-      </figure>
-
-      <div class="hero-copy reveal">
-        <p class="eyebrow">Private members club</p>
-        <h1>Закрытый круг</h1>
-        <p>Тело, дело, вкус, культура и окружение собираются в один взрослый уровень.</p>
-        <div class="actions">
-          <a class="button" href="start.html#application">Подать заявку</a>
-          <a class="button ghost" href="method.html">Узнать о клубе</a>
+  <a class="skip-link" href="#main">К содержанию</a>
+  <div class="cursor" aria-hidden="true"></div>
+  <div class="page-shell">
+    <header class="site-nav" aria-label="Главная навигация">
+      <div class="site-nav__inner">
+        <a class="brand" href="index.html" aria-label="Private Circle">
+          <span class="brand-mark">PC</span>
+          <span class="brand-copy">
+            <span class="brand-label">Private members society</span>
+            <span class="brand-name">Private Circle</span>
+          </span>
+        </a>
+        <nav class="nav-links">
+          <a href="club.html">Информация</a>
+          <a href="appearance.html">Внешность</a>
+          <a href="business.html">Бизнес</a>
+          <a href="art.html">Искусство</a>
+          <a href="cellar.html">Вкус</a>
+          <a href="membership.html">Членство</a>
+        </nav>
+        <div class="nav-aux">
+          <a href="login.html">Member Login</a>
         </div>
-        <div class="hero-club-note reveal">
-          <span>Members only</span>
-          <strong>Среда, где уровень считывается сразу.</strong>
-          <p>Форма, идеи, стол, культура и сильное окружение.</p>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Открыть меню">
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <main class="main" id="main">
+      <section class="section hero">
+        <div class="hero__layout">
+          <div class="hero__content reveal">
+            <p class="eyebrow">Closed circle for rising men</p>
+            <h1 class="display">Членство в круге, где личный уровень становится образом жизни.</h1>
+            <p class="lede">Private Circle собирает молодых мужчин, для которых важны не только доход и результат, но и качество среды, внешний вид, культурная опора, вкус и манера держать себя в обществе.</p>
+            <div class="hero__actions">
+              <a class="button button--primary" href="apply.html">Запросить членство</a>
+              <a class="button button--ghost" href="club.html">О клубе</a>
+            </div>
+          </div>
+
+          <div class="hero-visual reveal">
+            <div class="hero-card">
+              <img src="../assets/hero-club-member.jpg" alt="Участник клуба в классическом костюме.">
+              <div class="hero-note">
+                <strong>Inside the circle</strong>
+                <span>Небольшие встречи в течение месяца: стол, разговор, деловая ясность, вкус и круг людей, рядом с которыми планка держится выше без лишних слов.</span>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
 
-      <div class="large-word">CLUB</div>
-    </section>
+      <section class="section section--tight">
+        <div class="grid-3">
+          <article class="stat-card reveal">
+            <strong>Внешность</strong>
+            <h3>Форма как первое доказательство собранности.</h3>
+            <p>Тело, посадка, одежда, уход и дисциплина складываются в присутствие, которое читается раньше любого знакомства.</p>
+          </article>
+          <article class="stat-card reveal">
+            <strong>Бизнес</strong>
+            <h3>Деловая мысль без шума и вторичных идей.</h3>
+            <p>Книги, подкасты, разборы и разговоры, которые укрепляют масштаб мышления, а не создают иллюзию занятости.</p>
+          </article>
+          <article class="stat-card reveal">
+            <strong>Культура</strong>
+            <h3>Вкус, который делает человека тоньше и точнее.</h3>
+            <p>Искусство, стол, вино и разговор становятся частью внутренней меры, а не декоративным набором тем для впечатления.</p>
+          </article>
+        </div>
+      </section>
 
-    <section class="club-ledger reveal">
-      <div class="club-ledger__head">
-        <p class="eyebrow">Club code</p>
-        <h2>Пять слоев одного круга</h2>
-      </div>
-      <div class="club-ledger__grid">
-        <article>
-          <span>Body</span>
-          <strong>Форма как первый сигнал</strong>
-          <p>Собранность, внешний вид и дисциплина, которые видно до первого разговора.</p>
-        </article>
-        <article>
-          <span>Business</span>
-          <strong>Среда для идей и роста</strong>
-          <p>Книги, идеи, разговоры о бизнесе и людях, которые двигаются вперед.</p>
-        </article>
-        <article>
-          <span>Taste</span>
-          <strong>Вкус как социальный язык</strong>
-          <p>Вино, коктейли, гастрономия и культура поведения в хорошей компании.</p>
-        </article>
-        <article>
-          <span>Culture</span>
-          <strong>Эстетическая опора</strong>
-          <p>Искусство, музыка и культурный слой, который делает человека глубже.</p>
-        </article>
-      </div>
-    </section>
+      <section class="section">
+        <div class="split">
+          <div class="reveal">
+            <p class="eyebrow">Кому это близко</p>
+            <h2 class="title">Не публика и не поток. Круг мужчин со сходной мерой требований к себе.</h2>
+            <p class="lede">Клуб подходит тем, кому уже тесно в случайной среде. Тем, кто хочет расти не только в результате, но и в качестве собственной жизни: во внешности, разговоре, вкусе, выборе людей и уровне ежедневных привычек.</p>
+          </div>
+          <div class="panel reveal">
+            <p class="eyebrow">Что составляет клуб</p>
+            <div class="pillars">
+              <article class="pillar">
+                <div class="pillar-index">01</div>
+                <div>
+                  <h3>Личная линия</h3>
+                  <p>Внешность, дисциплина, стиль, телесная форма и спокойная уверенность как единая основа мужского присутствия.</p>
+                </div>
+              </article>
+              <article class="pillar">
+                <div class="pillar-index">02</div>
+                <div>
+                  <h3>Среда</h3>
+                  <p>Знакомства и разговоры с людьми, для которых рост, мера и качество решений уже стали нормой, а не редким исключением.</p>
+                </div>
+              </article>
+              <article class="pillar">
+                <div class="pillar-index">03</div>
+                <div>
+                  <h3>Ритм клуба</h3>
+                  <p>Частные встречи в барах и ресторанах, заранее собранные по теме: деловая мысль, культурная опора, стол, вкус и социальный код.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
 
-    <section class="intro-grid reveal">
-      <article>
-        <span>01</span>
-        <h2>Тело</h2>
-        <p>Форма, энергия и внешний вид.</p>
-        <a href="training.html">Открыть</a>
-      </article>
-      <article>
-        <span>02</span>
-        <h2>Дело</h2>
-        <p>Идеи, книги и мышление роста.</p>
-        <a href="faq.html">Открыть</a>
-      </article>
-      <article>
-        <span>03</span>
-        <h2>Вкус</h2>
-        <p>Стол, манеры и культурный слой.</p>
-        <a href="nutrition.html">Открыть</a>
-      </article>
-    </section>
+      <section class="section">
+        <p class="eyebrow reveal">Форматы внутри клуба</p>
+        <h2 class="title reveal">Каждая встреча строится вокруг содержания, а не вокруг самого факта собраться.</h2>
+        <div class="event-list reveal">
+          <article class="event-row">
+            <div class="event-date">May / Moscow</div>
+            <div>
+              <h3>Private supper: круг, стол, код разговора.</h3>
+              <p class="copy">Небольшой состав, заранее обозначенная тема и спокойный разговор о личной линии роста, среде, манерах и тех деталях, по которым мужчина одного круга отличим от другого.</p>
+            </div>
+            <div class="event-meta">Бар или ресторан<br>до 14 участников</div>
+          </article>
+          <article class="event-row">
+            <div class="event-date">June / Moscow</div>
+            <div>
+              <h3>Business circle: книги, идеи, решения.</h3>
+              <p class="copy">Разговор о предпринимательском мышлении, актуальных сигналах и зрелых решениях без лозунгов, показной эффективности и вторичного информационного шума.</p>
+            </div>
+            <div class="event-meta">Закрытый ужин<br>тема объявляется заранее</div>
+          </article>
+          <article class="event-row">
+            <div class="event-date">June / Moscow</div>
+            <div>
+              <h3>Cellar night: вино, крепкие напитки, вкус.</h3>
+              <p class="copy">Как читать карту, как выбирать, как различать и как держать себя в среде, где вкус замечают быстрее, чем формальные статусы.</p>
+            </div>
+            <div class="event-meta">Дегустационный формат<br>малый состав</div>
+          </article>
+        </div>
+      </section>
 
-    <section class="cta-band reveal">
-      <p class="eyebrow">Private entry</p>
-      <h2>Подать заявку в закрытый круг</h2>
-      <a class="button" href="start.html#application">Подать заявку в клуб</a>
-    </section>
-  </main>
+      <section class="quote-band">
+        <blockquote class="reveal">Высокий уровень мужчины складывается не только из результата. Его выдают среда, вкус, дисциплина и качество людей, с которыми он делит один стол.</blockquote>
+      </section>
 
-  <script src="script.js?v=20260507b"></script>
+      <section class="section">
+        <div class="membership-grid reveal">
+          <div class="membership-copy">
+            <p class="eyebrow">Membership</p>
+            <h2 class="title">Членство начинается с рассмотрения, а не с формальной покупки доступа.</h2>
+            <p class="lede">Клуб остается открытым к сильным людям, но не к случайности. Сначала заявка, затем личное рассмотрение, и только потом — вход в закрытый ритм Private Circle.</p>
+            <div class="hero__actions">
+              <a class="button button--primary" href="apply.html">Запросить членство</a>
+              <a class="button button--ghost" href="login.html">Member Login</a>
+            </div>
+          </div>
+          <div class="membership-process">
+            <div class="step-list">
+              <div class="step">
+                <span>01</span>
+                <div>
+                  <strong>Запрос</strong>
+                  <p>Коротко и ясно обозначить свою линию, мотивацию и причину, по которой тебе нужен именно такой круг.</p>
+                </div>
+              </div>
+              <div class="step">
+                <span>02</span>
+                <div>
+                  <strong>Рассмотрение</strong>
+                  <p>Нас интересуют не громкие слова, а характер, потенциал, дисциплина и органичность человека для среды.</p>
+                </div>
+              </div>
+              <div class="step">
+                <span>03</span>
+                <div>
+                  <strong>Приглашение</strong>
+                  <p>После подтверждения открывается личный кабинет участника и доступ к внутреннему ритму клубной жизни.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>Private Circle</span>
+      <span>Moscow · Closed membership format</span>
+    </footer>
+  </div>
+  <script src="app.js"></script>
 </body>
 </html>
-
