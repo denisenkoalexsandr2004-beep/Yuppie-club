@@ -1,4 +1,4 @@
-document.documentElement.classList.add("js");
+﻿document.documentElement.classList.add("js");
 document.body.classList.add("page-enter");
 
 const reveals = document.querySelectorAll(".reveal");
@@ -53,45 +53,11 @@ function syncMobileCopy() {
   for (const node of compactTextNodes) {
     if (!node.dataset.desktopHtml) {
       node.dataset.desktopHtml = node.innerHTML;
-      node.dataset.expanded = "false";
     }
 
-    const next = node.nextElementSibling;
-    const hasToggle = next && next.classList.contains("mobile-copy-toggle");
-
-    if (!mobileTextQuery.matches) {
-      node.innerHTML = node.dataset.desktopHtml;
-      node.dataset.expanded = "false";
-      node.classList.remove("is-mobile-collapsed");
-
-      if (hasToggle) {
-        next.remove();
-      }
-
-      continue;
-    }
-
-    const isExpanded = node.dataset.expanded === "true";
-    node.innerHTML = isExpanded ? node.dataset.desktopHtml : node.dataset.mobileText;
-    node.classList.toggle("is-mobile-collapsed", !isExpanded);
-
-    let toggle = next;
-
-    if (!hasToggle) {
-      toggle = document.createElement("button");
-      toggle.type = "button";
-      toggle.className = "mobile-copy-toggle";
-      toggle.addEventListener("click", () => {
-        const expanded = node.dataset.expanded === "true";
-        node.dataset.expanded = expanded ? "false" : "true";
-        node.innerHTML = expanded ? node.dataset.mobileText : node.dataset.desktopHtml;
-        node.classList.toggle("is-mobile-collapsed", expanded);
-        toggle.textContent = expanded ? "Полный текст" : "Свернуть";
-      });
-      node.insertAdjacentElement("afterend", toggle);
-    }
-
-    toggle.textContent = isExpanded ? "Свернуть" : "Полный текст";
+    node.innerHTML = mobileTextQuery.matches
+      ? node.dataset.mobileText
+      : node.dataset.desktopHtml;
   }
 }
 
@@ -125,3 +91,5 @@ if (applicationForm && statusNode) {
     applicationForm.reset();
   });
 }
+
+
