@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Private Club | Вход</title>
+  <meta name="description" content="Личный вход в кабинет члена клуба.">
+  <meta name="theme-color" content="#050507">
+  <script>document.documentElement.classList.add("js");</script>
+  <link rel="stylesheet" href="style.css?v=20260507b">
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти к содержанию</a>
+
+  <header class="nav">
+    <a class="brand" href="index.html" aria-label="Private Club">
+      <span class="brand-crest" aria-hidden="true"><span class="brand-crest__seal"></span></span>
+      <span class="brand-word">Private Club</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Открыть меню">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav class="nav-links" id="site-nav" aria-label="Навигация">
+      <a href="method.html">Клуб</a>
+      <a href="training.html">Тело</a>
+      <a href="faq.html">Дело</a>
+      <a href="nutrition.html">Вкус</a>
+      <a href="tariffs.html">Членство</a>
+    </nav>
+    <a class="nav-cta" href="account.html">Кабинет</a>
+  </header>
+
+  <main class="site" id="main">
+    <section class="subpage auth-shell">
+      <div class="auth-copy auth-visual reveal">
+        <div class="auth-visual-frame auth-visual-frame--minimal">
+          <p class="eyebrow">New client</p>
+          <h1>Получить доступ</h1>
+          <p>Сначала заполни заявку. После подтверждения сопровождения тебе откроется личный кабинет.</p>
+          <a class="button auth-application-link" href="start.html#application">Перейти к анкете</a>
+          <div class="auth-visual-tags" aria-hidden="true">
+            <span>Анкета</span>
+            <span>Подтверждение</span>
+            <span>Доступ</span>
+          </div>
+        </div>
+      </div>
+
+      <section class="auth-panel reveal" aria-labelledby="auth-title">
+        <div class="auth-panel-head">
+          <p class="eyebrow">Private access</p>
+          <h2 id="auth-title">Войти в личный кабинет</h2>
+          <p>Если доступ уже выдан, войди по email и паролю.</p>
+        </div>
+
+        <form id="auth-form" class="application-form auth-form">
+          <label class="field">
+            <span>Email</span>
+            <input type="email" id="auth-email" name="email" placeholder="client@example.com" autocomplete="email" required>
+          </label>
+
+          <label class="field">
+            <span>Пароль</span>
+            <input type="password" id="auth-password" name="password" placeholder="Не короче 6 символов" autocomplete="current-password" required>
+          </label>
+
+          <div class="auth-actions">
+            <button class="button" type="submit" id="auth-login">Войти</button>
+          </div>
+
+          <p class="status-text" id="auth-status" aria-live="polite"></p>
+        </form>
+
+        <details class="admin-access">
+          <summary>Режим администратора</summary>
+          <p>После заявки доступ выдается через email и пароль клиента.</p>
+          <button class="button ghost" type="button" id="auth-signup">Выдать доступ клиенту</button>
+        </details>
+      </section>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="auth.js?v=20260507b"></script>
+</body>
+</html>

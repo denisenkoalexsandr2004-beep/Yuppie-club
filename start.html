@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Private Club | Заявка</title>
+  <meta name="description" content="Оставь заявку в клуб: расскажи о себе, своем ритме, целях и о том, зачем тебе среда, которая собирает тело, дело, вкус и культуру.">
+  <meta name="theme-color" content="#050507">
+  <script>document.documentElement.classList.add("js");</script>
+  <link rel="stylesheet" href="style.css?v=20260507b">
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти к содержанию</a>
+
+  <header class="nav">
+    <a class="brand" href="index.html" aria-label="Private Club">
+      <span class="brand-crest" aria-hidden="true"><span class="brand-crest__seal"></span></span>
+      <span class="brand-word">Private Club</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Открыть меню">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav class="nav-links" id="site-nav" aria-label="Навигация">
+      <a href="method.html">Клуб</a>
+      <a href="training.html">Тело</a>
+      <a href="faq.html">Дело</a>
+      <a href="nutrition.html">Вкус</a>
+      <a href="tariffs.html">Членство</a>
+    </nav>
+    <a class="nav-cta nav-cta--portal" href="account.html">Личный кабинет</a>
+  </header>
+
+  <main class="site" id="main">
+    <section class="subpage split start-page">
+      <div class="copy reveal">
+        <p class="eyebrow">Futurum</p>
+        <h1>Заявка в закрытый клуб</h1>
+        <p>Расскажи о себе, своем ритме и о том, зачем тебе такая среда.</p>
+        <a class="button" href="#application">Перейти к анкете</a>
+      </div>
+      <aside class="club-aside reveal">
+        <span>Admission</span>
+        <strong>Мы собираем не массовость, а точное совпадение по темпу и ценностям.</strong>
+        <p>После анкеты мы смотрим, подходит ли тебе сама среда и как ты можешь в нее войти.</p>
+        <div class="club-aside__list">
+          <div>Profile</div>
+          <div>Review</div>
+          <div>Invitation</div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="cards application-grid reveal" id="application">
+      <article class="application-copy">
+        <span>Initium</span>
+        <h2>Анкета на вход в клуб</h2>
+        <p>Чем точнее ты опишешь себя, тем лучше мы поймем, нужен ли тебе именно такой круг и как ты можешь встроиться в его ритм.</p>
+        <ul class="bullet-list">
+          <li>Твоя текущая точка: тело, дело, режим и среда.</li>
+          <li>Что именно ты хочешь усилить через клуб.</li>
+          <li>Насколько ты готов входить в новый культурный и социальный уровень.</li>
+          <li>Контакт, по которому можно продолжить разговор.</li>
+        </ul>
+      </article>
+
+      <article class="application-form-card">
+        <span class="form-section-mark">Forma</span>
+        <div class="form-prelude">
+          <p class="form-kicker">Private Admission</p>
+          <h3>Запрос на вход в среду</h3>
+          <p>Короткая анкета, чтобы понять, кто ты сейчас, куда хочешь расти и почему тебе нужен именно такой формат клуба.</p>
+        </div>
+        <form id="application-form" class="application-form">
+          <label class="field">
+            <span>Имя</span>
+            <input type="text" id="name" name="name" autocomplete="name" placeholder="Как к тебе обращаться" required>
+          </label>
+
+          <label class="field">
+            <span>Цель</span>
+            <input type="text" id="goal" name="goal" placeholder="Например: собрать новое тело, среду и более высокий уровень жизни" required>
+          </label>
+
+          <label class="field">
+            <span>Опыт</span>
+            <select id="experience" name="experience">
+              <option value="">Выбери вариант</option>
+              <option>Только начинаю собирать себя системно</option>
+              <option>Есть база, но не хватает среды</option>
+              <option>Хочу выйти на новый уровень во всем контуре жизни</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>Какой формат тебе ближе</span>
+            <select id="format" name="format">
+              <option value="">Выбери вариант</option>
+              <option>Больше фокус на теле и дисциплине</option>
+              <option>Хочу круг общения и интеллектуальную среду</option>
+              <option>Нужен полный контур: тело, дело, вкус и культура</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>Контакт</span>
+            <input type="text" id="contact" name="contact" autocomplete="off" placeholder="Telegram, телефон или почта" required>
+          </label>
+
+          <label class="field">
+            <span>Детали</span>
+            <textarea id="details" name="details" rows="5" placeholder="Опиши свой текущий образ жизни, цели, интерес к телу, бизнесу, культуре, вкусу и все, что важно понять о тебе"></textarea>
+          </label>
+
+          <div class="form-actions">
+            <button class="button ghost" type="button" id="save-draft">Сохранить черновик</button>
+            <button class="button" type="button" id="copy-application">Отправить в Telegram</button>
+          </div>
+
+          <p class="status-text" id="form-status" aria-live="polite"></p>
+        </form>
+
+        <div class="client-entry-note">
+          <p>Уже внутри системы? <a href="account.html">Войти в кабинет клиента</a></p>
+        </div>
+      </article>
+    </section>
+    <section class="journey-nav reveal">
+      <div class="journey-head">
+        <p class="eyebrow">Navigation</p>
+        <h2>Хочешь лучше почувствовать клуб перед заявкой?</h2>
+      </div>
+      <div class="journey-grid">
+        <a class="journey-card" href="method.html">
+          <span>Логика среды</span>
+          <strong>Клуб</strong>
+          <p>Вернись к описанию клуба и посмотри, что за круг мы собираем.</p>
+        </a>
+        <a class="journey-card" href="training.html">
+          <span>Первый слой</span>
+          <strong>Тело</strong>
+          <p>Посмотри, как клуб строит форму, дисциплину и общий внешний уровень.</p>
+        </a>
+        <a class="journey-card" href="tariffs.html">
+          <span>Уровень участия</span>
+          <strong>Членство</strong>
+          <p>Сравни форматы входа и пойми, какая глубина участия тебе ближе.</p>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js?v=20260507b"></script>
+</body>
+</html>
+
