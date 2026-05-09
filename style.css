@@ -17,6 +17,7 @@
   --radius-sm: 16px;
   --content: 1240px;
   --nav-height: 80px;
+  --display-font: "Bodoni Moda", "Times New Roman", serif;
 }
 
 * {
@@ -38,14 +39,13 @@ body {
     linear-gradient(180deg, #101a2a 0%, #0c1421 50%, #08111c 100%);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  transition: opacity 0.32s cubic-bezier(.22,1,.36,1), filter 0.32s cubic-bezier(.22,1,.36,1);
 }
 
-body.nav-open {
-  overflow: hidden;
-}
-
-body.page-enter {
+body.page-enter,
+body.page-leave {
   opacity: 0;
+  filter: blur(5px);
 }
 
 a {
@@ -118,9 +118,19 @@ img {
   padding: 8px 16px;
   border: 1px solid rgba(212, 173, 108, 0.18);
   border-radius: 999px;
-  background: rgba(10, 17, 28, 0.9);
+  background:
+    linear-gradient(180deg, rgba(15, 24, 38, 0.96), rgba(9, 16, 27, 0.94));
   backdrop-filter: blur(18px);
   box-shadow: var(--shadow);
+}
+
+.site-nav::after {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border: 1px solid rgba(212, 173, 108, 0.08);
+  border-radius: 999px;
+  pointer-events: none;
 }
 
 .site-nav__inner {
@@ -128,13 +138,15 @@ img {
   grid-template-columns: auto 1fr auto;
   align-items: center;
   gap: 18px;
+  position: relative;
 }
 
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   min-width: 0;
+  padding-right: 8px;
 }
 
 .brand-mark {
@@ -150,7 +162,7 @@ img {
   display: grid;
   place-items: center;
   font-size: 22px;
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family: var(--display-font);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.28);
 }
 
@@ -162,9 +174,9 @@ img {
   display: block;
   color: var(--text-faint);
   font-size: 10px;
-  letter-spacing: 0.24em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  margin-bottom: 2px;
+  margin-bottom: 4px;
 }
 
 .brand-name {
@@ -172,7 +184,7 @@ img {
   color: var(--text);
   font-size: clamp(1.5rem, 1.9vw, 1.92rem);
   line-height: 0.94;
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family: var(--display-font);
   font-style: italic;
   font-weight: 500;
   letter-spacing: -0.01em;
@@ -182,39 +194,44 @@ img {
   justify-self: center;
   display: flex;
   align-items: center;
-  gap: clamp(16px, 1.8vw, 28px);
+  gap: clamp(14px, 1.5vw, 24px);
   flex-wrap: wrap;
 }
 
-.nav-links a,
-.nav-aux a {
+.nav-links a {
   position: relative;
-  padding-bottom: 4px;
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 0 4px;
   color: var(--text-soft);
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.16em;
   text-transform: uppercase;
+  transition: color 0.28s ease, opacity 0.28s ease;
 }
 
-.nav-links a::after,
-.nav-aux a::after {
+.nav-links a::after {
   content: "";
   position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  left: 4px;
+  right: 4px;
+  bottom: 6px;
   height: 1px;
   background: var(--gold);
   transform: scaleX(0);
-  transform-origin: left;
+  transform-origin: center;
   transition: transform 0.45s cubic-bezier(.22,1,.36,1);
 }
 
 .nav-links a:hover::after,
-.nav-links a[aria-current="page"]::after,
-.nav-aux a:hover::after {
+.nav-links a[aria-current="page"]::after {
   transform: scaleX(1);
+}
+
+.nav-links a:hover {
+  color: var(--text);
 }
 
 .nav-links a[aria-current="page"] {
@@ -224,7 +241,33 @@ img {
 .nav-aux {
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 12px;
+}
+
+.nav-aux a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0 18px;
+  border: 1px solid rgba(212, 173, 108, 0.18);
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(0, 0, 0, 0.04));
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  transition:
+    border-color 0.28s ease,
+    background 0.28s ease,
+    transform 0.28s ease;
+}
+
+.nav-aux a:hover {
+  border-color: rgba(212, 173, 108, 0.32);
+  background: linear-gradient(180deg, rgba(212, 173, 108, 0.12), rgba(255, 255, 255, 0.03));
+  transform: translateY(-1px);
 }
 
 .nav-toggle {
@@ -296,11 +339,11 @@ img {
   margin: 0;
   color: var(--text);
   font-size: clamp(2.3rem, 4.25vw, 4.28rem);
-  line-height: 0.95;
-  font-family: "Cormorant Garamond", Georgia, serif;
+  line-height: 0.98;
+  font-family: var(--display-font);
   font-style: italic;
   font-weight: 500;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.025em;
 }
 
 .title {
@@ -308,10 +351,10 @@ img {
   color: var(--text);
   font-size: clamp(1.88rem, 3.22vw, 3.16rem);
   line-height: 1.12;
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family: var(--display-font);
   font-style: italic;
   font-weight: 500;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.02em;
 }
 
 .lede,
@@ -393,6 +436,10 @@ img {
 
 .button--ghost {
   background: rgba(255, 255, 255, 0.02);
+}
+
+.button--ghost:hover {
+  background: rgba(196, 153, 106, 0.08);
 }
 
 .hero-visual {
@@ -507,7 +554,7 @@ img {
 .stat-card h3 {
   margin: 0 0 10px;
   color: var(--text);
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family: var(--display-font);
   font-size: clamp(1.74rem, 2.15vw, 2.22rem);
   line-height: 0.96;
   font-style: italic;
@@ -548,7 +595,7 @@ img {
 .event-row h3 {
   margin: 0 0 8px;
   color: var(--text);
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family: var(--display-font);
   font-size: clamp(1.4rem, 1.75vw, 1.72rem);
   line-height: 1.16;
   font-style: italic;
@@ -589,7 +636,7 @@ img {
   color: var(--text);
   font-size: clamp(1.6rem, 1.96vw, 2.1rem);
   line-height: 0.98;
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family: var(--display-font);
   font-style: italic;
   font-weight: 500;
 }
@@ -609,7 +656,7 @@ img {
   width: min(calc(100% - 32px), 980px);
   margin: 0 auto;
   color: var(--text);
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family: var(--display-font);
   font-style: italic;
   font-size: clamp(2rem, 4vw, 3.6rem);
   line-height: 1.02;
@@ -771,7 +818,7 @@ img {
   margin: 0 0 12px;
   color: var(--text);
   font-size: clamp(1.74rem, 2.16vw, 2.18rem);
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family: var(--display-font);
   font-style: italic;
   font-weight: 500;
 }
@@ -808,7 +855,7 @@ img {
   margin: 0 0 10px;
   color: var(--text);
   font-size: clamp(1.9rem, 2.56vw, 2.48rem);
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family: var(--display-font);
   font-style: italic;
   line-height: 0.98;
   font-weight: 500;
@@ -888,6 +935,145 @@ img {
   flex-wrap: wrap;
 }
 
+.journey-nav {
+  padding-top: 20px;
+}
+
+.journey-nav__shell {
+  border: 1px solid rgba(212, 173, 108, 0.14);
+  border-radius: 32px;
+  background: linear-gradient(180deg, rgba(23, 33, 49, 0.88), rgba(15, 22, 34, 0.96));
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.journey-nav__header {
+  padding: clamp(24px, 3vw, 36px);
+  border-bottom: 1px solid rgba(212, 173, 108, 0.1);
+}
+
+.journey-nav__header .title {
+  max-width: 18ch;
+}
+
+.journey-nav__header .lede {
+  max-width: 760px;
+}
+
+.journey-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.journey-link {
+  display: grid;
+  gap: 10px;
+  min-height: 176px;
+  padding: 24px 26px;
+  border-right: 1px solid rgba(212, 173, 108, 0.1);
+  border-top: 1px solid rgba(212, 173, 108, 0.1);
+  transition: background 0.32s ease, transform 0.32s cubic-bezier(.22,1,.36,1);
+}
+
+.journey-link:nth-child(3n) {
+  border-right: 0;
+}
+
+.journey-link:hover {
+  background: rgba(196, 153, 106, 0.06);
+  transform: translateY(-2px);
+}
+
+.journey-link__index {
+  color: var(--gold);
+  font-size: 12px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.journey-link strong,
+.journey-step strong,
+.journey-current strong {
+  color: var(--text);
+  font-family: var(--display-font);
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(1.6rem, 2vw, 2rem);
+  line-height: 1;
+}
+
+.journey-link span:last-child,
+.journey-step span:last-child,
+.journey-current span:last-child {
+  color: var(--text-soft);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.journey-nav__shell--linear {
+  padding: 26px;
+}
+
+.journey-switch {
+  display: grid;
+  grid-template-columns: 1fr 280px 1fr;
+  gap: 18px;
+  align-items: stretch;
+}
+
+.journey-step,
+.journey-current {
+  min-height: 188px;
+  padding: 24px 26px;
+  border: 1px solid rgba(212, 173, 108, 0.1);
+  border-radius: 24px;
+  background: rgba(10, 17, 28, 0.24);
+}
+
+.journey-step {
+  display: grid;
+  align-content: space-between;
+  gap: 14px;
+  transition: background 0.32s ease, transform 0.32s cubic-bezier(.22,1,.36,1), border-color 0.32s ease;
+}
+
+.journey-step:hover {
+  background: rgba(196, 153, 106, 0.06);
+  border-color: rgba(212, 173, 108, 0.22);
+  transform: translateY(-2px);
+}
+
+.journey-step__label {
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.journey-current {
+  display: grid;
+  align-content: center;
+  text-align: center;
+  gap: 16px;
+}
+
+.journey-progress {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.journey-progress span {
+  width: 22px;
+  height: 2px;
+  border-radius: 999px;
+  background: rgba(212, 173, 108, 0.16);
+}
+
+.journey-progress span.is-active {
+  background: var(--gold);
+}
+
 .cursor {
   position: fixed;
   left: 0;
@@ -952,6 +1138,21 @@ img {
   .hero-visual {
     min-height: 560px;
   }
+
+  .journey-grid,
+  .journey-switch {
+    grid-template-columns: 1fr;
+  }
+
+  .journey-link {
+    min-height: auto;
+    border-right: 0;
+  }
+
+  .journey-current {
+    order: -1;
+    min-height: auto;
+  }
 }
 
 @media (max-width: 820px) {
@@ -1004,25 +1205,16 @@ img {
 
   .site-nav.is-open .nav-links {
     top: calc(100% + 10px);
-    gap: 14px;
-    padding: 22px 22px 14px;
+    gap: 0;
+    padding: 18px 22px 20px;
     border: 1px solid rgba(212, 173, 108, 0.16);
-    border-bottom: 0;
-    border-radius: 24px 24px 0 0;
+    border-radius: 24px;
     background: linear-gradient(180deg, rgba(21, 29, 43, 0.98), rgba(14, 20, 31, 0.98));
     box-shadow: 0 22px 60px rgba(1, 5, 11, 0.38);
   }
 
-  .site-nav.is-open .nav-aux {
-    top: calc(100% + 279px);
-    gap: 0;
-    margin-top: -1px;
-    padding: 14px 22px 22px;
-    border: 1px solid rgba(212, 173, 108, 0.16);
-    border-top: 0;
-    border-radius: 0 0 24px 24px;
-    background: linear-gradient(180deg, rgba(14, 20, 31, 0.98), rgba(12, 18, 28, 0.98));
-    box-shadow: 0 22px 60px rgba(1, 5, 11, 0.38);
+  .nav-aux {
+    display: none !important;
   }
 
   .nav-links a,
@@ -1031,9 +1223,27 @@ img {
     letter-spacing: 0.14em;
   }
 
-  .nav-aux a {
-    padding-top: 14px;
-    border-top: 1px solid rgba(212, 173, 108, 0.12);
+  .nav-links a {
+    min-height: 0;
+    padding: 13px 0;
+  }
+
+  .nav-links a::after {
+    left: 0;
+    right: auto;
+    width: 28px;
+    bottom: 4px;
+    transform-origin: left;
+  }
+
+  .nav-links a + a {
+    border-top: 1px solid rgba(212, 173, 108, 0.08);
+  }
+
+  .nav-links .nav-login-mobile {
+    margin-top: 8px;
+    padding-top: 18px;
+    border-top: 0;
   }
 
   .brand-mark {
@@ -1134,7 +1344,7 @@ img {
 
   .display {
     font-size: clamp(1.98rem, 10vw, 3.14rem);
-    line-height: 0.96;
+    line-height: 0.98;
   }
 
   .title {
@@ -1167,6 +1377,10 @@ img {
     font-size: 13px;
   }
 
+  .nav-links .nav-login-mobile {
+    margin-top: 10px;
+  }
+
   .button {
     min-height: 50px;
     padding: 0 20px;
@@ -1191,9 +1405,9 @@ img {
   }
 
   .hero__content .display {
-    max-width: 12.6ch;
-    font-size: clamp(2.2rem, 11.6vw, 3.38rem);
-    line-height: 0.92;
+    max-width: 14ch;
+    font-size: clamp(2.32rem, 11.4vw, 3.56rem);
+    line-height: 0.94;
   }
 
   .stat-card,
@@ -1227,5 +1441,26 @@ img {
     width: calc(100% - 18px);
     padding: 24px 0 34px;
     font-size: 0.9rem;
+  }
+
+  .journey-nav__header,
+  .journey-nav__shell--linear,
+  .journey-link,
+  .journey-step,
+  .journey-current {
+    padding: 18px;
+    border-radius: 22px;
+  }
+
+  .journey-link strong,
+  .journey-step strong,
+  .journey-current strong {
+    font-size: 1.72rem;
+  }
+
+  .journey-link span:last-child,
+  .journey-step span:last-child,
+  .journey-current span:last-child {
+    font-size: 0.98rem;
   }
 }
